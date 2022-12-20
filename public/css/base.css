@@ -1,0 +1,95 @@
+:root {
+    --grisOscuro: #24292e;
+    --grisClaro: #3a4147;
+    --blanco: #ffffff;
+    --verde: #2dba4e;
+    --rojo: #ef1010;
+    --azulOscuro: #2a4259;
+}
+/* Bootstrap */
+.btn:hover{
+    color: #ffff;
+    /* background-color: var(--verde); */
+}
+
+.btn-primario:hover{
+    background-color: var(--verde);
+}
+
+.btn-primario{
+    background-color: var(--verde);
+    color: var(--blanco);
+}
+
+.btn-primario>{
+    font-weight: bold;
+}
+
+.btn-secundario{
+    background-color: var(--verde);
+}
+
+.btn-warning{
+    color: white;
+}
+/* CSS */
+
+/* Bienvenida */
+#titulo-bienvenida{
+    color: var(--blanco);
+}
+
+.texto-bienvenida{
+    color: var(--blanco);
+}
+
+#comenzar-bienvenida{
+    font-size: 2rem;
+}
+
+/* NAV */
+
+.offcanvas-title{
+    color: var(--grisOscuro)
+}
+/* Generico */
+
+#contenedor {
+    background-color: var(--azulOscuro);
+    border-radius: 0.375rem;
+}
+
+.col {
+    border-radius: 0.375rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--grisOscuro);
+    height: 100vh;
+}
+
+input.error-input{
+    border: 2px var(--rojo) solid;
+}
+
+ul.error-lista{
+    background-color:#e40e0ebe
+}
+
+h1,h2,h3,h4,h5{
+    color: #ffffff;
+}
+
+:disabled {
+    background: var(--blanco);
+    color: black;
+    resize: none;
+}
+
+textarea{
+    resize: none;
+}

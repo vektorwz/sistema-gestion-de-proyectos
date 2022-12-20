@@ -1,0 +1,20 @@
+a {
+    display: inline;
+    color: var(--blanco);
+}
+
+a:hover{
+    color: var(--blanco);
+}
+
+div.contenedor-proyecto{
+    background-color: var(--grisClaro);
+}
+
+.fecha-inicio, .fecha-final, span {
+    color: var(--blanco);
+}
+
+button:hover{
+    background-color: var(--blanco);
+}
