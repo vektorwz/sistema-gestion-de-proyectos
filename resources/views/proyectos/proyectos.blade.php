@@ -34,7 +34,8 @@
                                       
                     <div class="fecha-inicio mx-3">
                         @php
-                            $fecha = new DateTime($proyecto->fecha_inicio);
+                            $timezone = new DateTimeZone('America/Argentina/Buenos_Aires');
+                            $fecha = new DateTime($proyecto->fecha_inicio, $timezone);
                             echo ($fecha->format('d/m/Y'));
                         @endphp
                     </div>
@@ -43,7 +44,7 @@
                     
                     <div class="fecha-final mx-3">
                         @php
-                            $fecha = new DateTime($proyecto->fecha_final);
+                            $fecha = new DateTime($proyecto->fecha_final, $timezone);
                             echo ($fecha->format('d/m/Y'));
                         @endphp
                     </div>
@@ -52,8 +53,8 @@
 
                     <div class="dias-faltantes ms-1">
                         @php
-                            $fechaActual = new DateTime('now');
-                            $fechaFinal = new DateTime($proyecto->fecha_final);
+                            $fechaActual = new DateTime('now', $timezone);
+                            $fechaFinal = new DateTime($proyecto->fecha_final, $timezone);
                             $diasFaltantes = $fechaFinal->diff($fechaActual);
                         @endphp
                         <strong>{{ $diasFaltantes->format('%d dias y %h horas') }}</strong> Faltantes
