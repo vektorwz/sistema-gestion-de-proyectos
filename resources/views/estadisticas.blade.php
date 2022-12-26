@@ -11,27 +11,40 @@
             </div>
         </div>
         <div class="row my-3 text-center">
-            <div class="row">
-                <div class="col">
-                    <h4>Proyectos totales: {{ $estadisticas->contProyectos }}</h2>
+            <div class="col">
+
+                <div class="row">
+
+                    <div class="col">
+                        <h4>Proyectos totales: {{ $estadisticas->contProyectos }}</h2>
+                    </div>
+                    
+                    <div class="vr"></div>
+                    
+                    <div class="col">
+                        <h4>{{ count($proyectosTarde ) }} tienen menos de una semana para terminarse</h4>
+                        <div class="dropdown">
+                            <button class="btn btn-primario dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ver
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @foreach ($proyectosTarde as $proyecto)
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('proyectos.show', $proyecto->id_proyecto) }}">
+                                            {{ $proyecto->nombre }} 
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="col">
-                    <h4>:proyectos tienen menos de una semana para terminarse</h4>
-                    <div class="dropdown">
-                        <button class="btn btn-primario dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        Fecha Inicio
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="{{ route('tareas.index', ['clave' => 'fecha_inicio', 'orden' => 'DESC']) }}">Descendente</a></li>
-                            <li><a class="dropdown-item" href="{{ route('tareas.index', ['clave' => 'fecha_inicio', 'orden' => 'ASC']) }}">Ascendente</a></li>            
-                        </ul>
-                    </div>
-                </div>
-                
                 <div class="progress" style="height: 1px;">
                     <div class="progress-bar" role="progressbar" style="width: 100%; background-color: var(--grisOscuro);"></div>
                 </div>
+
             </div>
         </div>
 
