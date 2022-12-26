@@ -11,14 +11,17 @@ class Estadisticas {
     public $contProyectos = 0;
     public $porcTareasPendientes = 0;
     public $porcTareasRealizadas = 0;
-    public $proyectosTarde;
+    public $proyectosTarde = [];
+    public $proyectosFinalizados = [];
     private $timezone;
 
     public function __construct($proyectos, $tareas){
         $this->timezone = new DateTimeZone('America/Argentina/Buenos_Aires');
         foreach ($proyectos as $proyecto) {
             $fechaFinal = new DateTime($proyecto->fecha_final, $this->timezone);
-            $fechaFinal->diff(new DateTime('now', $this->timezone));
+            $diferencia = $fechaFinal->diff(new DateTime('now', $this->timezone));
+            $diferencia->days < 7 ? array_push($this->proyectosTarde, $proyecto) : "" ;
+            $diferencia->days < 0 ? array_push($this->proyectosFinalizados, $proyecto) : "" ;
             $this->contProyectos++;
         }
         foreach ($tareas as $tarea) {
